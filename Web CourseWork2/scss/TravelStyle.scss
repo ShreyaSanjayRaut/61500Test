@@ -1,0 +1,521 @@
+/* Style for the header and menu bar */
+
+/* Reset some default styles for the body */
+body {
+    font-family: revert;
+    @include reset-margin-padding;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+// Apply SCSS variables to styles
+a {
+    text-decoration: none;
+    color: $link-text-color;
+}
+
+ul, li {
+   @include reset-margin-padding;
+    list-style: none;
+}
+
+header {
+    background-color: $header-background-color;
+    color: $header-text-color;
+    padding: 10px;
+    box-shadow: 0px 4px 6px $header-box-shadow-color;
+}
+/* Fix the navbar to the top of the viewport */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make it span the full width of the viewport */
+    z-index: 100; /* Adjust the z-index to ensure it's above other content */
+    background: white;
+}
+
+.menu {
+    margin-left: $menu-margin-left;
+    display: flex;
+    justify-content: space-between;
+    align-items: $center-align-items;
+}
+
+.menu li {
+    display: flex;
+    align-items: $center-align-items;
+}
+
+.menu li a {
+    padding: $menu-link-padding;
+    color: $menu-link-color;
+    transition: background-color $link-transition-duration;
+}
+
+.menu-image img {
+    max-width: $menu-image-max-width;
+    max-height: $menu-image-max-height;
+    margin: $menu-image-margin;
+}
+
+.content {
+    padding-left: 20px;
+    background-color: $content-background-color;
+}
+
+a[href="#findStay"] {
+    text-decoration: none;
+    color: $link-text-color;
+    transition: background-color $link-transition-duration;
+}
+
+.right-menu img {
+    width: 20px;
+    height: $menu-right-image-height;
+}
+/* Adjust margin-left for specific elements */
+.imageAvailableRoom-container h2,
+.imageAvailableRoom-container p,
+.verticleRating b {
+    margin-left: 10px; /* Add margin to the left of these specific elements */
+}
+
+/* Style for specific elements with class .findStay1 on hover */
+.findStay1:hover {
+    background-color: rebeccapurple; /* Change background color to rebeccapurple on hover */
+}
+
+/* Style for text selection (highlighted text) */
+P::selection {
+    background-color: rgba(103, 98, 67, 1); /* Set the background color for selected text */
+}
+
+
+/* Additional styling for the content area */
+
+/* Style for anchor links within elements with class .Turkey */
+.Turkey{
+margin-left: -40px;
+}
+
+.Turkey a {
+    @include link-styles;
+}
+
+/* Style for elements with class .CVKHotel */
+.CVKHotel {
+    font-size: $font-size-cvk-hotel;
+    color: $text-color-cvk-hotel;
+    font-family: $font-family-sans-serif;
+}
+
+/* Style for elements with class .custom-font-family */
+.custom-font-family {
+    font-family: $font-family-sans-serif;
+}
+
+/* Style for elements with class .custom-font */
+.custom-font {
+    font-size: $font-size-custom;
+    margin-top: $margin-top-custom;
+}
+
+/* Style for elements with class .start-font */
+.start-font {
+    font-size: $font-size-start;
+    color: $text-color-red;
+}
+
+/* Style for elements with class .small-font */
+.small-font {
+    font-size: $font-size-small;
+}
+
+/* Style for elements with class .medium-font */
+.medium-font {
+    font-size: $font-size-medium;
+    text-align: $text-align-medium;
+    font-weight: $font-weight-medium;
+}
+
+/* Style for elements with class .inline-div */
+.inline-div {
+    display: inline;
+}
+
+/* Style for elements with class .container */
+.container {
+    align-items: $center-align-items;
+    float: left;
+}
+
+/* Style for elements with class .image */
+.image {
+    float: left; /* Float elements to the left */
+    padding: 5px; /* Add padding to the elements */
+}
+
+/* Apply border to the <hr> element with class .border-hr */
+hr.border-hr {
+    border: 1px solid #ddd; /* Add a border with a light gray color */
+    height: 1px; /* Set the height of the <hr> element */
+    /* Adjust height as needed */
+}
+
+/* Apply the common tile styles using the mixin */
+.tile {
+    @include tile-styles;
+}
+
+/* Style for elements with class .tile-first-color */
+.tile-first-color {
+    background-color: $tile-first-color-bg;
+}
+
+/* Style for tile components */
+.tile-text {
+    font-size: $tile-text-font-size;
+    margin-top: $tile-text-margin-top;
+    margin-left: $tile-text-margin-left;
+}
+
+/* Style for h1 elements within .tile-first-color */
+.tile-first-color h1 {
+    margin-top: $tile-first-color-h1-margin-top;
+}
+
+.imageAvailableRoom-container {
+    @include flex-center-padding(20px, normal); /* Apply mixin to the container */
+}
+
+/* Style for elements with class .imageAvailableRoom-container 
+.imageAvailableRoom-container {
+    display: flex; 
+    align-items: center; 
+    padding-left: 20px;
+}*/
+
+// Define the elements you want to style using the mixin
+$elements-to-style: p, h2;
+
+@each $element in $elements-to-style {
+    .imageAvailableRoom-container #{$element} {
+        @if $element == p {
+            @include flex-center-padding(1%, bold); /* Apply mixin to paragraphs */
+        } @else if $element == h2 {
+            @include flex-center-padding(55%, bolder); /* Apply mixin to h2 elements */
+        }
+    }
+}
+
+/* Style for elements with class .plus-size */
+.plus-size {
+    font-size: 30px; /* Set font size to 30px */
+}
+
+/* Add spacing between the image and text within elements with class .imageAvailableRoom-container */
+.imageAvailableRoom-container img {
+    margin-right: 10px; /* Add right margin to images */
+    /* Adjust the margin as needed */
+}
+
+/* Style for elements with class .iframe-container */
+.iframe-container {
+    margin-left: 20px; /* Add left margin */
+    width: 20%; /* Set width to 20% */
+}
+
+/* Style for elements with class .locationAvailableRoom-container */
+.locationAvailableRoom-container {
+    @include locationAvailableRoom-container
+}
+
+/* Style for elements with class .immaplocationg within .locationAvailableRoom-container */
+.locationAvailableRoom-container .immaplocationg {
+  @include locationAvailableRoom-container;
+}
+
+/* Style for elements with class .box1 */
+.box1 {
+    @include common-box-styles(1120px, null, 2, 400px);
+}
+
+/* Style for elements with class .box2 */
+.box2 {
+    @include common-box-styles(300px, 100px, 1, null);
+}
+
+/* Style for buttons within .locationAvailableRoom-container */
+.locationAvailableRoom-container button {
+    @include common-button-style;
+    margin-left: 1320px;
+}
+
+/* Style for paragraphs within elements with class .verticleRating */
+.verticleRating p {
+    @include common-paragraph-styles;
+}s
+
+/* Style for h1 elements within .tile-first-color */
+.tile-first-color h1 {
+    margin-top: $tile-first-color-margin-top;
+}
+
+/* Style for elements with class .box */
+.box {
+    width: 40px;
+    height: 40px;
+    background-color: $box-background-color;
+    text-align: $center-align-items;
+    line-height: 50px;
+    border: 2px solid $box-border-color;
+}
+
+/* Style for elements with class .box-text */
+.box-text {
+    margin-top: $box-text-margin-top;
+}
+
+/* Style for elements with class .form-container */
+.form-container {
+    background-color: $form-container-bg-color;
+    @include flex-container; /* Apply the flex-container mixin */
+    padding-left: 5px;
+}
+
+/* Style for elements with class .Subscribe */
+.Subscribe {
+    font-size: $subscribe-font-size;
+    font-weight: $subscribe-font-weight;
+}
+
+/* Style for elements with class .flex */
+.flex {
+    @include flex-container; /* Apply the flex-container mixin */
+}
+// Style for input elements of type "email"
+input[type="email"] {
+    @include common-input-styles;
+}
+
+// Style for input elements of type "submit"
+input[type="submit"] {
+    background-color: $inputEmailBgColor;
+    color: $inputEmailTextColor;
+    padding: $inputEmailPadding;
+    margin-bottom: $inputMarginBottom;
+    margin-right: $inputMarginRight;
+    border: none;
+    border-radius: $inputBorderRadius;
+    cursor: $inputEmailCursor;
+}
+
+/* Style for elements with class .list-container */
+.list-container {
+    list-style: none; /* Remove list bullet points */
+    display: flex; /* Use flexbox for layout */
+    position: absolute; /* Position absolutely */
+    bottom: -300px; /* Set bottom position */
+    left: 0; /* Set left position */
+    color: #090909; /* Set text color */
+    padding: 10px; /* Add padding */
+    width: 100%; /* Set width to 100% */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+/* Style for list items within .list-container */
+.list-item {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 20px; /* Add spacing between list items */
+    vertical-align: top; /* Align list items to the top */
+    text-wrap: nowrap; /* Prevent text from wrapping */
+}
+
+/* Style for sub-lists */
+.sub-list {
+    list-style-type: none; /* Use a different list marker */
+    @include reset-margin-padding;
+    display: inline; /* Display sub-list items horizontally */
+    vertical-align: top; /* Align sub-list items to the top */
+}
+
+/* Usage example of the mixins */
+.image-button2 {
+    @include common-img-button-styles;
+    @include adjust-left-margin(450px);
+    color: rgb(0, 0, 0);
+}
+
+.image-button {
+    @include common-img-button-styles;
+    @include adjust-left-margin(995px);
+    border-color: white;
+}
+
+.button-img {
+    @include common-styles;
+}
+
+/* Style for elements with class .findStay1 on hover */
+.findStay1:hover {
+    background-color: rebeccapurple; /* Change background color to rebeccapurple on hover */
+}
+
+/* Style for elements with class .nightPadding */
+.nightPadding {
+    justify-content: flex-end; /* Justify content to the flex-end */
+    width: 100%; /* Set width to 100% */
+    padding: 1354px; /* Add padding */
+    padding-top: 1000px; /* Add top padding */
+    color: $text-color-red; /* Set text color to red */
+}
+
+/* Style for elements with class .maplocation */
+.maplocation {
+    margin-left: -81px; /* Adjust left margin */
+    margin-top: -12px; /* Adjust top margin */
+}
+
+/* Style for elements with class .verticleRating */
+.verticleRating {
+    display: flex; /* Use flexbox for layout */
+    padding-bottom: 10px; /* Add bottom padding */
+}
+
+/* Style for elements within .verticleRating with tag <b> */
+.verticleRating b {
+    margin-left: 10px; /* Add left margin */
+    margin-top: 15px; /* Add top margin */
+}
+
+/* Use the mixin for different button classes */
+
+.image-BookNow {
+    @include button-styles(rgb(166, 238, 166), black, 2px, 10px, white, 10px 20px, pointer);
+}
+
+.viewAllPhotos {
+    @include button-styles(rgba(155, 211, 187, 1), black, 2px, 10px, white, 10px 20px, pointer);
+}
+
+.book-button {
+    @include button-styles(rgba(155, 211, 187, 1), black, 2px, 10px, white, 10px 20px, pointer);
+}
+
+/* Style for elements with class .viewmap-button */
+.viewmap-button {
+    @include common-button-styles;
+    margin-left: 1160px;
+}
+
+/* Style for elements with class .image-width */
+.image-width {
+    @include common-image-styles;
+}
+
+/* Style for elements with class .marginleft6 */
+.marginleft6 {
+    @include common-margin-left-styles;
+}
+
+/* Style for elements with class .header-image */
+.header-image {
+    margin-top: $header-image-margin-top;
+    height: $header-image-height;
+    width: $header-image-width;
+}
+
+/* Style for elements with class .flexdisplay */
+.flexdisplay {
+    @include flex-display;
+}
+
+/* Style for elements with class .footermenus */
+.footermenus {
+    color: $text-color;
+    @include no-text-decoration;
+    white-space: nowrap;
+}
+
+/* Style for elements with class .mailbox */
+.mailbox {
+    margin-left: $margin-left-mailbox;
+}
+
+/* Style for elements with class .pagination */
+.pagination {
+    font-size: $font-size-pagination;
+    margin-top: $margin-top-pagination;
+    text-align: $center-align-items;
+}
+
+/* Style for elements with class .flag-image */
+.flag-image {
+    @include flex-display;
+    justify-content: flex-end;
+    margin-left: $margin-left-flag-image;
+}
+
+/* Style for elements with class .googlemaplocation */
+.googlemaplocation {
+    @include flex-display;
+    align-items: $center-align-items;
+    /* padding-left: px; Invalid property (should specify a value) */
+    margin-left: -40px;
+}
+
+/* Style for elements with class .location-container */
+.location-container {
+    @include flex-display;
+    align-items: $center-align-items;
+}
+
+/* Style for elements with class .review-button */
+.review-button {
+    @include common-button-styles;
+}
+/* Style for elements with class .logo-footer-image */
+.logo-footer-image {
+    width: $footer-logo-width;
+}
+
+/* Style for elements with class .font-size-xxx-large */
+.font-size-xxx-large {
+    font-size: $font-size-xxx-large;
+}
+
+/* Style for elements with class .more-plus */
+.more-plus {
+    color: $more-plus-color;
+}
+
+/* Define the columns with class .column-container */
+.column-container {
+    @include column-container;
+}
+/* Apply mixins to elements */
+.item {
+    @include flex-align-margin(10px);
+}
+
+.item img {
+    @include item-image;
+}
+
+.overlay-button {
+    @include overlay-button;
+}
+
+.menu a {
+    @include menu-link;
+}
+
+.menu a.hover-link {
+    @include hover-link-effect;
+}
+
+.breadcrumb-item {
+    @include breadcrumb-item;
+}

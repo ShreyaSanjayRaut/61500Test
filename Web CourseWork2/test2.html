@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Menu Bar</title>
+    <style>
+        .breadcrumb {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  display: inline;
+  margin-right: 20px; /* Adjust the spacing between breadcrumb items */
+  margin-left:10px;
+  position: relative; /* Make the item a positioning context */
+}
+
+.breadcrumb-item:not(:last-child)::after {
+  content: ' > '; /* Add an arrow symbol after each item except the last one */
+  position: absolute;
+  right: -20px; /* Adjust the arrow's position */
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Turkey</a></li>
+              <li class="breadcrumb-item"><a href="#">Istanbul</a></li>
+              <li class="breadcrumb-item active" aria-current="page">ABC Hotel</li>
+            </ol>
+          </nav>
+          
+    </header>
+</body>
+</html>
